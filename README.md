@@ -75,12 +75,15 @@ cryptovault/
 ├── setup.py
 ├── src/
 │   ├── main.py
+│   ├── _init_.py
 │   ├── auth/
 │   ├── messaging/
 │   ├── files/
 │   ├── blockchain/
+│   ├── storage/
 │   └── crypto_core/
 ├── tests/
 └── docs/
+
 ```
 ---
