@@ -73,17 +73,55 @@ cryptovault/
 ├── README.md
 ├── requirements.txt
 ├── setup.py
+├── architecture.md
+├── security_analysis.md
+├── user_guide.md
+│
 ├── src/
-│   ├── main.py
-│   ├── _init_.py
+│   ├── __init__.py
+│   ├── main.py                    # CLI entry point
+│   │
+│   ├── crypto_core/               # From-scratch implementations
+│   │   ├── __init__.py
+│   │   ├── sha256.py              # SHA-256 from scratch
+│   │   ├── merkle_tree.py         # Merkle tree from scratch
+│   │   ├── classical_ciphers.py   # Caesar + Vigenère from scratch
+│   │   └── utils.py               # Shared crypto utilities
+│   │
 │   ├── auth/
+│   │   ├── __init__.py
+│   │   ├── registration.py        # User registration + password hashing
+│   │   ├── login.py               # Login + session management
+│   │   └── totp.py                # TOTP 2FA implementation
+│   │
 │   ├── messaging/
+│   │   ├── __init__.py
+│   │   ├── key_exchange.py        # ECDH key exchange
+│   │   ├── encryption.py          # AES-256-GCM message encryption
+│   │   └── signatures.py          # ECDSA digital signatures
+│   │
 │   ├── files/
+│   │   ├── __init__.py
+│   │   ├── encryption.py          # File encryption with AES-256-GCM
+│   │   ├── key_derivation.py      # PBKDF2/Argon2 key derivation
+│   │   └── integrity.py           # SHA-256 + HMAC verification
+│   │
 │   ├── blockchain/
-│   ├── storage/
-│   └── crypto_core/
-├── tests/
-└── docs/
-
+│   │   ├── __init__.py
+│   │   ├── block.py               # Block structure + PoW
+│   │   ├── chain.py               # Blockchain management
+│   │   └── merkle.py              # Merkle tree integration
+│   │
+│   └── storage/
+│       ├── __init__.py
+│       └── database.py            # JSON file-based storage
+│
+└── tests/
+    ├── __init__.py
+    ├── test_crypto_core.py
+    ├── test_auth.py
+    ├── test_messaging.py
+    ├── test_files.py
+    └── test_blockchain.py
 ```
 ---
